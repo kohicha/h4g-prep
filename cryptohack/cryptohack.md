@@ -1,14 +1,6 @@
-# Introduction to cryptohack
-
-# ord() converts to decimal, chr() converts to char
-
-# bytes.fromhex() hex to bytes 
-
-# imports
-import base64 as b64
-
-# CHALL 1
-
+## Challenge 1
+---
+```python
 crypt1 = [99, 114, 121, 112, 116, 111, 123, 65, 83, 67, 73, 73, 95, 112, 114, 49, 110, 116, 52, 98, 108, 51, 125]
 res = []
 for i in crypt1:
@@ -16,19 +8,25 @@ for i in crypt1:
 
 result = ''.join(res)
 print(result)
+```
 
 
-# CHALL 2
 
+## Challenge 2
+---
+```python
 crypt2 = "63727970746f7b596f755f77696c6c5f62655f776f726b696e675f776974685f6865785f737472696e67735f615f6c6f747d"
 
 res1 = bytes.fromhex(crypt2)
 
 print (res1)
+```
 
 
-# CHALL 3
 
+## Challenge 3
+---
+```python
 crypt3 = "72bca9b68fc16ac7beeb8f849dca1d8a783e8acf9679bf9269f7bf"
 
 res2 = bytes.fromhex(crypt3)
@@ -36,10 +34,13 @@ res2 = bytes.fromhex(crypt3)
 res2 = b64.b64encode(res2)
 
 print(res2)
+```
 
 
-#CHALL 4
 
+## Challenge 4
+---
+```python
 from Crypto.Util.number import *
 
 crypt4 = 11515195063862318899931685488813747395775516287289682636499965282714637259206269
@@ -47,19 +48,25 @@ crypt4 = 11515195063862318899931685488813747395775516287289682636499965282714637
 res = long_to_bytes(crypt4)
 
 print(res)
+```
 
 
-# CHALL 5
 
+## Challenge 5
+---
+```python
 chall5 = "label"
 chall5 = [ord(x) for x in chall5] # returns an array
 chall5 = [13 ^ i for i in chall5]
 chall5 = ''.join(chr(o) for o in chall5) 
-print(chall5) 
+print(chall5)
+```
 
 
-# CHALL 6
 
+## Challenge 6
+---
+```python
 # Use zip() for key value pair ord1:ord2
 
 
@@ -101,9 +108,13 @@ final_flag = [k1 ^ flag_ord for (k1, flag_ord) in zip(ord_k1, flag_k2_k3)]
 final = "".join(chr(o)for o in final_flag)
 
 print(final)
+```
 
-# CHALL 7
 
+
+## Challenge 7
+---
+```python
 chall7 = "73626960647f6b206821204f21254f7d694f7624662065622127234f726927756d"
 
 chall7 = [i for i in bytes.fromhex(chall7)]
@@ -114,14 +125,4 @@ for order in range(256):
     if chall7flag1.startswith("crypto"):
         print(chall7flag1)
 print(chall7)
-
-
-
-# CHALL 8 
-
-chall8 = "0e0b213f26041e480b26217f27342e175d0e070a3c5b103e2526217f27342e175d0e077e263451150104"
-
-chall8key = "crypto{FLAG}"
-
-chall8 = [i for i in bytes.fromhex(chall8)]
-
+```
